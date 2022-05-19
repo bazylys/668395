@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('book_store_books', function (Blueprint $table) {
+        Schema::create('book_book_store', function (Blueprint $table) {
             $table->foreignId('book_id')->references('id')->on('books');
             $table->foreignId('book_store_id')->references('id')->on('book_stores');
+            $table->unsignedSmallInteger('count')->default(0);
         });
     }
 
